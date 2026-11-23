@@ -9,6 +9,7 @@
 
 .Principal {
 display: block;
+text-align: center;
 }
 
 
@@ -471,15 +472,11 @@ const abrirLibro = document.querySelectorAll(".Libro1Menu, .Comentario");
                   document.getElementById("label").style.visibility = "hidden";
                   document.getElementById("label").style.fontSize = "0px";
 
-                document.getElementById("DejaComentario").style.visibility = "hidden";
-document.getElementById("DejaComentario").style.fontSize = "0px";
+               
 
-
-document.getElementById("reset").style.visibility = "hidden";
-   document.getElementById("reset").style.fontSize = "0px";
+document.getElementById("reset").style.display = "none";
     
-  document.getElementById("submit").style.visibility = "hidden";
-  document.getElementById("submit").style.fontSize = "0px";
+  document.getElementById("submit").style.display = "none";
 
 
         }
@@ -591,6 +588,9 @@ function cerrar() {
              abrir[i].style.fontSize = "20px";
        abrir[i].style.display = "block";
 }
+
+
+document.getElementById("Enviado").style.fontSize = "0px";
 
 document.getElementById("Cerrar").style.display = "none";
 
