@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+       
+<style>
+
+.Principal {
+display: block;
+}
+
+
+#Letrero {
+  font-size: 205%;
+ text-align: center;
+  }
+  
+  
+  
+  .Libro {
+     display: flex;
+     margin: 0 auto;
+     width: 40%;
+     max-height: 100%;  
+}
+
+  
+  .Texto {
+  display: block;
+  font-align: center;
+  }
+  
+  .Libro1Menu {
+  display: none;
+  }
+  
+  
+    #Leer1 {
+    font-size: 0%;
+    width: 150px;
+    height: 80px;
+    margin: 0 auto;
+    display: none;
+         }
+        
+         
+
+#submit {
+
+    display: none;
+    width: 150px;
+    height: 80px;
+    background: none; 
+    border: none;    
+    cursor: pointer;
+        margin: 0 auto;
+
+}
+
+#submit video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+}
+
+#reset {
+
+    display: none;
+    width: 150px;
+    height: 80px;
+    background: none; 
+    border: none;    
+    cursor: pointer;
+        margin: 0 auto;
+
+}
+
+#reset video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+}
+
+
+ 
+
+
+.Botones {
+margin: 0 auto;
+display: flex;
+flex-direction: column;
+     }
+
+#Descripcion1 {
+       font-size: 0px;
+       text-align: center;
+       }
+
+
+       
+        #Enviado {
+       font-size: 0%;
+       text-align: center;
+       }
+
+        
+
+        #Cerrar {
+display: none;
+      width: 10%;
+       position: fixed;
+       top: 0%;
+        left: 0%;
+       z-index: 200;
+         }
+         
+         
+         
+         
+         
+              #EspacioBiologia {
+  display: grid;
+  gap: 0px;
+}
+
+       #BotonesEspacio {
+  display: grid;
+  gap: 0px;
+}
+
+
+
+ #EspacioTyC {
+ position: absolute;
+  display: grid;
+  gap: 0px;
+  top: 200px;
+}
+
+#EspacioPv {
+position: absolute;
+  display: grid;
+  gap: 0px;
+  top: 200px;
+  
+}
+
+#EspacioCreditos {
+  display: grid;
+  gap: 0px;
+}
+
+        
+@keyframes PaginasBiologia {
+  0% { top: -800px; width: 0%; height: 0%}
+    100% { top: 0px; width: 100%; height: 100%}
+}
+
+@keyframes Paginas {
+  0% { top: -200px; width: 100%; height: 100%; display: none;}
+    100% { top: 0px; width: 100%; height: 100%; display: block;}
+}
+
+
+</style>
+  
+</head>
+
+<body>
+
+
+<p class="Principal" id="Letrero">  Hey. Lee este ebook. </p>
+
+<img class="Principal, Libro" id="Libro1" onclick="input(); window.scrollTo({ top: 0, behavior: 'smooth' })" src="https://github.com/LibrosdePrint/page/blob/main/0.1.png?raw=true">
+
+
+  
+
+<p class="Principal" id="TerminosYCondiciones" onclick="TerminosYCondiciones(); window.scrollTo({ top: 0, behavior: 'smooth' })"> Términos y Condiciones. </p>
+
+<p class="Principal" id="PoliticaDePrivacidad" onclick="PoliticaDePrivacidad(); window.scrollTo({ top: 0, behavior: 'smooth' });"> Política de privacidad. </p>   
+
+<p class="Principal" id="Creditos" onclick="Creditos()"> Créditos </p>
+
+
+
+<p id="Descripcion1" class="Libro1Menu"> Este es un libro de biología ficticio escrito por una criatura que es la última de su especie. </p>
+
+<p id="Enviado"> ¡Enviado! </p>   
+
+<video autoplay muted loop playsinline webkit-playsinline class="Libro1Menu" id="Leer1" onclick="Leer1()" poster="https://github.com/LibrosdePrint/page/blob/main/LeerPoster.png?raw=true" type="video/mp4">
+</video>
+
+<form name="formulario" method="post" action="https://script.google.com/macros/s/AKfycbzRde1ZZvK0DygQyOKX03ZPIxm2CM0mZlgZeHx6bx-I2n1Y_eItBRHVTzc0cBgGceDz/exec">
+
+<textarea name="Comentarios" class="Libro1Menu, Comentario" id="escribirTexto" type="text" placeholder="Escribe acá tu opinión. Cuando le des al botón verde, se enviará a una base de datos para que yo pueda leerlo y actualizar el libro. Si tienes alguna duda sobre la privacidad, revisa la política de privacidad." rows="10" cols="0" maxlength="1000" style="resize: none;"></textarea>
+
+<label for="publicacion" class="Libro1Menu" id="label"></label>
+
+<button type="submit" class="Libro1Menu" id="submit" onclick="enviado()">
+<video autoplay muted loop playsinline webkit-playsinline poster="https://github.com/LibrosdePrint/page/blob/main/EnviarPoster.png?raw=true">
+  <source src="EnviarAnimacion.mp4" type="video/mp4">
+</video>
+</button>
+
+<button type="reset" id="reset" class="Libro1Menu">
+<video autoplay muted loop playsinline webkit-playsinline poster="https://github.com/LibrosdePrint/page/blob/main/Borrar.jpg?raw=true">
+  <source src="BorrarAnimacion.mp4" type="video/mp4">
+</video>
+</button>
+
+</form>
+
+<video autoplay muted loop playsinline webkit-playsinline id="Cerrar" onclick="cerrar(); window.scrollTo({ top: 0, behavior: 'smooth' })" poster="https://github.com/LibrosdePrint/page/blob/main/CerrarBoton.png?raw=true">
+  <source src="QuitarAnimacion.mp4" type="video/mp4">
+</video>
+
+
+</div>
+        
+<div id="EspacioBiologia">
+
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.1.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.2.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.3.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.4.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.5.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.6.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.7.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.8.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.9.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.10.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.11.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.12.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.13.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.14.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.15.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.16.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.17.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.18.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.19.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.20.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.21.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.22.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.23.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.24.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.25.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.26.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.27.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.28.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.29.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.30.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.31.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.32.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.33.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.34.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.35.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.36.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.37.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.38.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.39.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.40.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.41.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.42.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.43.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.44.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.45.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.46.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.47.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.48.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.49.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.40.png?raw=true">
+<img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/0.50.png?raw=true">
+
+</div>
+       
+<div id="EspacioCreditos">
+       
+       
+<p class="Creditos"> Creado por José Ángel Vegas </p>
+
+<p class="Creditos"> </p>
+<p class="Creditos"> </p>
+
+<p class="Creditos"> Gracias especiales a </p>
+
+<p class="Creditos"> </p>
+<p class="Creditos"> </p>
+
+
+<p class="Creditos"> Mr.F </p>
+
+<p class="Creditos"> Hasenua Aquino </p>
+
+<p class="Creditos"> UnRandomMas </p>
+
+<p class="Creditos"> Braulio </p>
+
+<p class="Creditos"> Bodrigo </p>
+
+</div>
+
+
+<div id="EspacioTyC">
+
+<p class="TyC">Terminos Y Condiciones</p>
+
+<p class="TyC">1. Objeto y Descripción del Servicio Este sitio web es una plataforma digital de autor dedicado a la publicación y distribución de libros electrónicos propios (ebooks), así como a la divulgación de material complementario de creación propia, incluyendo universo narrativo (lore) y perfiles de personajes. Los usuarios pueden acceder al contenido, leer fragmentos o libros completos, y enviar valoraciones o comentarios de forma privada.</p>
+
+<p class="TyC">2. Propiedad Intelectual Todo el contenido publicado en este sitio web —incluyendo de manera enunciativa mas no limitativa: los textos de los ebooks, el lore, las descripciones de personajes, historias, ilustraciones, diseño web, código fuente y logotipos— es propiedad exclusiva del autor. Queda estrictamente prohibida la reproducción, distribución, comercialización, modificación o explotación no autorizada de cualquiera de estos materiales, ya sea de forma total o parcial.</p>
+
+<p class="TyC">3. Sistema de Comentarios y Privacidad (Feedback) El sitio web cuenta con un formulario interactivo que permite a los usuarios enviar comentarios, opiniones, críticas o sugerencias directamente al autor.
+Confidencialidad: Todos los mensajes enviados a través de este sistema son de carácter estrictamente privado y se almacenan en una base de datos de acceso exclusivo para el autor.
+Visibilidad: Ningún otro usuario o visitante del sitio web tendrá acceso, visibilidad o conocimiento del contenido de los comentarios enviados por terceros.
+Finalidad: El propósito único de este sistema es servir como canal de retroalimentación (feedback) para conocer la opinión de los lectores y mejorar la calidad de las obras.
+</p>
+
+<p class="TyC">4. Actualización Continua de las Obras Los ebooks publicados en esta plataforma operan bajo un modelo dinámico, similar al de un software. El autor se reserva el derecho de modificar, corregir, ampliar, reestructurar o actualizar el contenido de los libros en cualquier momento y sin previo aviso, utilizando como base principal las sugerencias y el feedback anónimo recibido por los lectores, con el objetivo de optimizar la experiencia de lectura.
+</p>
+
+<p class="TyC">5. Limitación de Responsabilidad El autor no se hace responsable por interrupciones temporales en el acceso al sitio web derivadas de fallos técnicos, tareas de mantenimiento o causas de fuerza mayor. Asimismo, el acceso a la plataforma y la lectura de los materiales no otorgan al usuario ningún derecho de propiedad ni licencia comercial sobre las obras expuestas.
+</p>
+
+<p class="TyC">6. Modificaciones a los Términos El autor se reserva el derecho de modificar o actualizar estos Términos y Condiciones en cualquier momento para adaptarlos a cambios legislativos o funcionales de la página web, los cuales entrarán en vigor a partir de su publicación en este mismo sitio.
+</p>
+
+</div>
+
+<div id="EspacioPv">
+
+<p class="Pv">Politica de Privacidad</p>
+
+<p class="Pv">Última actualización: 17 de septiembre de 2026</p>
+
+<p class="Pv">En este sitio web valoramos y respetamos la privacidad de quienes nos visitan. Esta Política de Privacidad explica de forma transparente qué información (o la ausencia de esta) recopilamos, cómo se utiliza y cómo protegemos la confidencialidad de los usuarios.</p>
+
+<p class="Pv">1. Carácter Anónimo de los Comentarios y Feedback</p>
+
+<p class="Pv">El sitio web ofrece una función de envío de comentarios y sugerencias destinada exclusivamente a que los lectores puedan brindar retroalimentación (feedback) sobre los libros, el lore y los personajes.</p>
+
+<p class="Pv">Anonimato total: El sistema de envío de comentarios está diseñado para operar de forma 100% anónima. No se solicita ni se almacena ningún dato de identificación personal (como nombres, correos electrónicos, direcciones IP u otros metadatos que permitan rastrear la identidad del emisor).
+
+Acceso restringido: Los mensajes enviados llegan directamente a una base de datos de acceso exclusivo del autor de la página, con el único fin de leerlos para mejorar y actualizar continuamente las obras. Ningún dato de estos comentarios es publicado ni compartido con terceros.
+</p>
+<p class="Pv">2. Recopilación de Datos Personales</p>
+       
+<p class="Pv">Debido a la naturaleza de la plataforma:
+No hay registro de usuarios: El sitio web no cuenta con sistemas de cuentas de usuario, perfiles, inicios de sesión ni registros obligatorios.
+No se recopila información personal: No recopilamos nombres, correos electrónicos, números de teléfono ni datos bancarios de los visitantes.
+
+</p>
+       
+<p class="Pv">3. Uso de la Información Recogida</p>
+
+<p class="Pv">La única información que se procesa son los textos enviados voluntariamente a través del formulario de comentarios anónimos. Esta información se utiliza única y exclusivamente para:
+Conocer la opinión y las sugerencias de los lectores.
+Servir como guía e inspiración para la mejora, corrección y actualización dinámica de los ebooks (de manera similar al desarrollo y actualización de un software).
+</p>
+       
+<p class="Pv">4. Seguridad de los Datos</p>
+       
+<p class="Pv">Se implementan medidas de seguridad técnicas y organizativas razonables en la base de datos donde se almacenan los comentarios anónimos para evitar accesos no autorizados, pérdida o alteración de la información. Al tratarse de contenido anónimo, se minimiza cualquier riesgo asociado a la privacidad del usuario.</p>
+       
+<p class="Pv">5. Enlaces y Sitios de Terceros</p>
+       
+<p class="Pv">Si la página web incluye enlaces a plataformas externas (como redes sociales, plataformas de pago o sitios de distribución de terceros), te recomendamos revisar las políticas de privacidad de dichos sitios externos, ya que este aviso aplica exclusivamente a nuestra página web.</p>
+
+<p class="Pv">6. Cambios en la Política de Privacidad</p>
+       
+<p class="Pv">Nos reservamos el derecho de actualizar esta Política de Privacidad en cualquier momento para reflejar cambios en el funcionamiento de la página web o por motivos legales. Cualquier modificación será publicada directamente en esta misma sección.</p>
+
+<p class="Pv">7. Contacto</p>
+
+<p class="Pv">Si tienes alguna duda o pregunta sobre esta Política de Privacidad, puedes ponerte en contacto a través de los canales oficiales indicados en el sitio web.</p>
+
+</div>
+
+         <script>
+   const scriptUrl = 'https://script.google.com/macros/s/AKfycbzRde1ZZvK0DygQyOKX03ZPIxm2CM0mZlgZeHx6bx-I2n1Y_eItBRHVTzc0cBgGceDz/exec';
+   
+const form = document.forms['formulario'];
+
+   form.addEventListener('submit', e => {
+      e.preventDefault()
+      
+fetch(scriptUrl, {method: 'POST', body: new FormData(form)})
+      
+   })
+</script>
+       
+       
+<script>
+
+
+
+const botonCerrar = document.querySelector('#Cerrar');
+
+
+   const borde = ["0px solid black"];
+
+   const radiosTrazos = ["12px 35px 20px 48px / 5px 30px 14px 22px", "45px 8px 33px 19px / 40px 11px 25px 47px", "3px 49px 27px 15px / 38px 20px 7px 42px", "22px 14px 41px 6px / 50px 28px 16px 33px", "37px 25px 9px 44px / 12px 45px 31px 4px", "19px 42px 30px 11px / 27px 8px 46px 17px", "50px 4px 18px 36px / 15px 39px 23px 41px", "8px 29px 47px 21px / 34px 6px 49px 13px", "41px 16px 5px 38px / 22px 48px 10px 27px", "15px 33px 39px 12px / 43px 19px 36px 8px", "28px 47px 14px 25px / 7px 32px 44px 18px", "33px 11px 42px 7px / 26px 15px 48px 30px", "6px 22px 28px 49px / 19px 41px 3px 37px", "44px 38px 16px 13px / 35px 24px 12px 46px", "21px 7px 35px 42px / 48px 10px 29px 15px", "9px 40px 23px 30px / 14px 37px 41px 6px", "36px 18px 48px 4px / 29px 5px 22px 34px", "13px 26px 7px 41px / 42px 18px 33px 25px", "47px 31px 19px 16px / 8px 43px 27px 11px", "25px 12px 44px 35px / 31px 21px 6px 48px", "4px 45px 11px 28px / 17px 36px 40px 9px", "30px 9px 37px 22px / 46px 13px 18px 39px", "18px 24px 26px 47px / 3px 29px 35px 14px", "42px 15px 8px 33px / 24px 48px 11px 27px", "11px 37px 49px 19px / 39px 7px 23px 32px", "27px 6px 15px 40px / 12px 33px 47px 20px", "35px 43px 22px 8px / 45px 16px 4px 38px", "16px 20px 38px 25px / 9px 42px 29px 15px", "23px 11px 4px 46px / 33px 27px 14px 44px", "49px 28px 31px 14px / 18px 4px 37px 21px", "7px 34px 12px 39px / 25px 19px 48px 10px", "14px 19px 45px 6px / 36px 44px 21px 28px", "38px 41px 17px 21px / 11px 25px 33px 7px", "10px 13px 29px 48px / 28px 38px 15px 42px", "26px 7px 40px 32px / 4px 14px 46px 19px", "43px 22px 13px 15px / 21px 31px 9px 36px", "5px 36px 24px 43px / 37px 12px 26px 23px", "32px 10px 46px 18px / 16px 47px 8px 35px", "19px 27px 6px 31px / 44px 9px 20px 12px", "20px 15px 33px 9px / 13px 26px 42px 17px", "41px 30px 18px 37px / 29px 40px 5px 24px", "12px 42px 25px 4px / 48px 17px 34px 11px", "34px 8px 47px 26px / 6px 35px 19px 45px", "17px 25px 10px 44px / 31px 21px 43px 8px", "29px 46px 36px 12px / 14px 3px 28px 33px", "8px 21px 15px 39px / 23px 49px 12px 27px", "46px 13px 28px 20px / 35px 18px 41px 6px", "21px 38px 42px 7px / 9px 24px 16px 40px", "15px 4px 19px 35px / 42px 11px 30px 25px", "39px 29px 7px 23px / 19px 33px 48px 15px"];
+       
+    function obtenerAleatorio(array) {
+        const indice = Math.floor(Math.random() * array.length);
+        return array[indice];
+    }
+
+
+const botonBiologia = document.querySelector('#Leer1');
+const paginasBiologia = document.querySelectorAll('.Biologia');
+
+
+ botonBiologia.addEventListener("click", () => {
+        paginasBiologia.forEach(paginaBiologia => {
+        
+            paginaBiologia.style.border = obtenerAleatorio(borde);
+            paginaBiologia.style.borderRadius = obtenerAleatorio(radiosTrazos);
+        });
+    });
+
+
+botonBiologia.addEventListener('click', function() {
+    paginasBiologia.forEach(p => p.classList.add('mostrar'));
+    paginasBiologia.forEach(p => p.classList.remove('esconder'));
+});
+
+botonCerrar.addEventListener('click', function() {
+    [paginasBiologia].forEach(grupo => {
+        grupo.forEach(p => {
+            p.classList.remove('mostrar');
+            p.classList.add('esconder');
+        });
+    });
+
+});
+
+       
+        function input() {
+        
+
+        
+const cerrarPrincipal = document.querySelectorAll(".Principal, .Libro");
+      for (let i = 0; i < cerrarPrincipal.length; i++) {
+         cerrarPrincipal[i].style.display = "none";
+         
+}
+
+const abrirLibro = document.querySelectorAll(".Libro1Menu, .Comentario");
+      for (let i = 0; i < abrirLibro.length; i++) {
+       abrirLibro[i].style.display = "block";
+       abrirLibro[i].style.fontSize = "20px";
+       abrirLibro[i].style.visibility = "visible";
+
+}
+              
+    document.getElementById("Cerrar").style.display = "block";
+         
+        }
+        
+        function enviado() {
+               document.getElementById("Enviado").style.fontSize = "18px";
+
+               
+                document.getElementById("escribirTexto").style.visibility = "hidden";
+                document.getElementById("escribirTexto").style.fontSize = "0px";
+
+                  document.getElementById("label").style.visibility = "hidden";
+                  document.getElementById("label").style.fontSize = "0px";
+
+                document.getElementById("DejaComentario").style.visibility = "hidden";
+document.getElementById("DejaComentario").style.fontSize = "0px";
+
+
+document.getElementById("reset").style.visibility = "hidden";
+   document.getElementById("reset").style.fontSize = "0px";
+    
+  document.getElementById("submit").style.visibility = "hidden";
+  document.getElementById("submit").style.fontSize = "0px";
+
+
+        }
+        
+              function Leer1() {
+  document.getElementById("EspacioBiologia").style.gap = "20px";
+  
+  }
+      
+
+function TerminosYCondiciones() {
+
+      const cerrar = document.querySelectorAll(".Libro, .Principal");
+      for (let i = 0; i < cerrar.length; i++) {
+         cerrar[i].style.fontSize = "0px";
+         cerrar[i].style.display = "none";
+
+
+}
+
+
+   const abrirTyC = document.querySelectorAll(".TyC");
+      for (let i = 0; i < abrirTyC.length; i++) {
+abrirTyC[i].style.fontSize = "20px";
+ abrirTyC[i].style.display = "block";
+
+}
+
+document.getElementById("Cerrar").style.display = "block";
+
+document.getElementById("EspacioTyC").style.gap = "20px";
+ 
+
+
+}
+      
+      
+function PoliticaDePrivacidad() {
+
+
+     const cerrar = document.querySelectorAll(".Libro, .Principal");
+      for (let i = 0; i < cerrar.length; i++) {
+         cerrar[i].style.fontSize = "0px";
+         cerrar[i].style.display = "none";
+
+
+}
+
+  
+   const abrirPv = document.querySelectorAll(".Pv");
+      for (let i = 0; i < abrirPv.length; i++) {
+       abrirPv[i].style.fontSize = "20px";
+       abrirPv[i].style.visibility = "visible";
+       abrirPv[i].style.display = "block";
+       
+
+       
+}
+
+
+document.getElementById("Cerrar").style.display = "block";
+
+document.getElementById("EspacioPv").style.gap = "20px";
+  
+
+}
+       
+function Creditos() {
+
+
+
+    const cerrar = document.querySelectorAll(".Libro, .Principal");
+      for (let i = 0; i < cerrar.length; i++) {
+         cerrar[i].style.fontSize = "0px";
+         cerrar[i].style.display = "none";
+
+
+}
+
+         const abrirCreditos = document.querySelectorAll(".Creditos");
+      for (let i = 0; i < abrirCreditos.length; i++) {
+         abrirCreditos[i].style.fontSize = "20px";
+          abrirCreditos[i].style.display = "block";
+         
+
+}
+
+document.getElementById("Cerrar").style.display = "block";
+
+
+document.getElementById("EspacioCreditos").style.gap = "20px";
+
+
+
+}
+
+function cerrar() {
+
+
+         const cerrar = document.querySelectorAll(".TyC, .Pv, .Creditos, .Libro1Menu, .Comentario, .Boton");
+      for (let i = 0; i < cerrar.length; i++) {
+         cerrar[i].style.fontSize = "0px";
+         cerrar[i].style.display = "none";
+
+}
+
+ const abrir = document.querySelectorAll(".Libro, .Principal");
+      for (let i = 0; i < abrir.length; i++) {
+             abrir[i].style.fontSize = "20px";
+       abrir[i].style.display = "block";
+}
+
+document.getElementById("Cerrar").style.display = "none";
+
+       
+    
+    }
+      
+      
+</script>
+
+
+
+<style>
+      
+    .Biologia {
+        width: 0% !important;
+        height: auto !important;
+        margin: 0 auto;
+        position: relative;
+                  display: none;
+        }
+
+
+     .Biologia.mostrar {
+           outline: black solid 2px;
+     display: flex;
+        width: 40% !important;
+        height: auto !important;
+        animation: PaginasBiologia 2s both;
+            transform: translateY(25%);
+       display: block;
+
+       }
+
+.Biologia.esconder {
+        width: 0% !important;
+        height: auto !important;
+        margin: 0 auto;
+        position: relative;
+       display: none;
+        }
+       
+
+       .Comentario {
+  position: relative;
+  display: flex;
+   margin: 0 auto;
+    visibility: hidden;
+  text-align: center;
+  font-size: 0px;
+    width: 85%;
+      height: 10%;
+}
+
+        .Creditos {
+  position: relative;
+  display: flex;
+   margin: 0 auto;
+  font-size: 0px;
+}
+
+        .TyC {
+font-size: 0px;
+display: none;
+  position: relative;
+  display: flex;
+top: -180px;
+   margin: 0 auto;
+}
+
+.Pv {
+font-size: 0px;
+display: none;
+ position: relative;
+display: flex;
+top: -170px;
+margin: 0 auto;
+
+}
+     
+
+       #escribirTexto {
+     background: white;
+border-radius: 16px;
+box-shadow: 0px 0px 5px;
+       }
+
+    
+
+
+ @media only screen and (max-width:500px) {
+
+         .Biologia {
+        width: 0% !important;
+        height: auto !important;
+        max-height: 0vh;
+        
+
+        }
+        
+        .Biologia.mostrar {
+        object-fit: contain;
+        margin: 0 auto;
+        display: flex;
+        width: 95% !important;
+        height: auto !important;
+        max-height: 100vh;
+        
+
+        }
+
+.Biologia.esconder {
+        width: 0% !important;
+        height: auto !important;
+        margin: 0 auto;
+        position: relative;
+        }
+        
+       
+</style>
+
+       
+       
+</body>
+</html>
