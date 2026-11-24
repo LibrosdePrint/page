@@ -12,6 +12,26 @@ display: block;
 text-align: center;
 }
 
+#Print {
+height: 25%;
+width: 25%;
+margin: 0 auto;
+}
+
+.Modo {
+height: 25%;
+width: 25%;
+margin: 0 auto;
+display: none;
+}
+
+.EpisodiosClasico {
+height: 25%;
+width: 25%;
+margin: 0 auto;
+display: none;
+}
+
 
 #Letrero {
   font-size: 205%;
@@ -123,7 +143,12 @@ display: none;
          
          
          
-              #EspacioBiologia {
+ #EspacioBiologia {
+  display: grid;
+  gap: 0px;
+}
+
+  #EspacioClasico {
   display: grid;
   gap: 0px;
 }
@@ -172,6 +197,12 @@ position: absolute;
 </head>
 
 <body>
+
+<img id="Print" onclick="seleccionarModo()" class="Principal"  src="https://github.com/LibrosdePrint/page/blob/main/PrintComenzar.webp?raw=true">
+
+<img onclick="ModoClasico()" class="Modo"  src="https://github.com/LibrosdePrint/page/blob/main/ModoClasicoPoster.png?raw=true">
+
+<img id="Episodio1Clasico" onclick="LeerEpisodio1Clasico()" class="EpisodiosClasico"  src="https://github.com/LibrosdePrint/page/blob/main/Episodio1Poster.png?raw=true">
 
 
 <p class="Principal" id="Letrero">  Hey. Lee este ebook. </p>
@@ -280,8 +311,27 @@ position: absolute;
 <img class="Biologia"  src="https://github.com/LibrosdePrint/page/blob/main/BiologiaMuyRara0.50.jpg?raw=true">
 
 </div>
+
+<div id="EspacioClasico">
+
+<img class="Episodio1ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/1%20E1.jpg?raw=true">
+<img class="Episodio1ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/2%20E1.jpg?raw=true">
+<img class="Episodio1ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/3%20E1.jpg?raw=true">
+<img class="Episodio1ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/4%20E1.jpg?raw=true">
+<img class="Episodio1ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/5%20E1.jpg?raw=true">
+<img class="Episodio1ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/6%20E1.jpg?raw=true">
+<img class="Episodio1ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/7%20E1.jpg?raw=true">
+<img class="Episodio1ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/8%20E1.jpg?raw=true">
+<img class="Episodio1ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/9%20E1.jpg?raw=true">
+<img class="Episodio1ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/10%20E1.jpg?raw=true">
+<img class="Episodio1ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/11%20E1.jpg?raw=true">
+<img class="Episodio1ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/12%20E1.jpg?raw=true">
+
+</div>
+
        
 <div id="EspacioCreditos">
+
        
        
 <p class="Creditos"> Creado por José Ángel Vegas </p>
@@ -431,8 +481,34 @@ botonBiologia.addEventListener('click', function() {
     paginasBiologia.forEach(p => p.classList.remove('esconder'));
 });
 
+
+
+const botonEpisodio1Clasico = document.querySelector('#Episodio1Clasico');
+const paginasEpisodio1Clasico = document.querySelectorAll('.Episodio1ClasicoPaginas');
+
+
+botonEpisodio1Clasico.addEventListener("click", () => {
+        paginasEpisodio1Clasico.forEach(paginasEpisodio1Clasico => {
+        
+            paginasEpisodio1Clasico.style.border = obtenerAleatorio(borde);
+            paginasEpisodio1Clasico.style.borderRadius = obtenerAleatorio(radiosTrazos);
+        });
+    });
+
+
+botonEpisodio1Clasico.addEventListener('click', function() {
+    paginasEpisodio1Clasico.forEach(p => p.classList.add('mostrar'));
+    paginasEpisodio1Clasico.forEach(p => p.classList.remove('esconder'));
+});
+
+
+
+
+
+
+
 botonCerrar.addEventListener('click', function() {
-    [paginasBiologia].forEach(grupo => {
+    [paginasBiologia, paginasEpisodio1Clasico].forEach(grupo => {
         grupo.forEach(p => {
             p.classList.remove('mostrar');
             p.classList.add('esconder');
@@ -441,10 +517,50 @@ botonCerrar.addEventListener('click', function() {
 
 });
 
-       
-        function input() {
+
+
+
+
+function seleccionarModo() {
+        
+const cerrarPrincipal = document.querySelectorAll(".Principal, .Libro");
+      for (let i = 0; i < cerrarPrincipal.length; i++) {
+         cerrarPrincipal[i].style.display = "none";
+         
+}
+
+const abrirSelector = document.querySelectorAll(".Modo");
+      for (let i = 0; i < abrirSelector.length; i++) {
+       abrirSelector[i].style.display = "block";
+
+}
+              
+    document.getElementById("Cerrar").style.display = "block";
+         
+        }
+        
+        
+        
+        function ModoClasico() {
+
+        const cerrarModo = document.querySelectorAll(".Modo");
+      for (let i = 0; i < cerrarModo.length; i++) {
+         cerrarModo[i].style.display = "none";
+         
+}
+
+const abrirEpisodiosClasico = document.querySelectorAll(".EpisodiosClasico");
+      for (let i = 0; i < abrirEpisodiosClasico.length; i++) {
+       abrirEpisodiosClasico[i].style.display = "block";
+
+}
+        
+        }
+        
         
 
+       
+        function input() {
         
 const cerrarPrincipal = document.querySelectorAll(".Principal, .Libro");
       for (let i = 0; i < cerrarPrincipal.length; i++) {
@@ -487,6 +603,15 @@ document.getElementById("reset").style.display = "none";
   document.getElementById("EspacioBiologia").style.gap = "20px";
   
   }
+  
+  function LeerEpisodio1Clasico() {
+    document.getElementById("EspacioClasico").style.gap = "20px";
+    
+    }
+
+  
+  
+  
       
 
 function TerminosYCondiciones() {
@@ -578,7 +703,7 @@ document.getElementById("EspacioCreditos").style.gap = "20px";
 function cerrar() {
 
 
-         const cerrar = document.querySelectorAll(".TyC, .Pv, .Creditos, .Libro1Menu, .Comentario, .Boton");
+         const cerrar = document.querySelectorAll(".TyC, .Pv, .Creditos, .Libro1Menu, .Comentario, .Boton, .Modo, .EpisodiosClasico");
       for (let i = 0; i < cerrar.length; i++) {
          cerrar[i].style.fontSize = "0px";
          cerrar[i].style.display = "none";
@@ -591,6 +716,9 @@ function cerrar() {
        abrir[i].style.display = "block";
 }
 
+document.getElementById("EspacioBiologia").style.gap = "0px";
+  
+document.getElementById("EspacioClasico").style.gap = "0px";
 
 document.getElementById("Enviado").style.fontSize = "0px";
 
@@ -628,6 +756,34 @@ document.getElementById("Cerrar").style.display = "none";
        }
 
 .Biologia.esconder {
+        width: 0% !important;
+        height: auto !important;
+        margin: 0 auto;
+        position: relative;
+       display: none;
+        }
+        
+        .Episodio1ClasicoPaginas {
+        width: 0% !important;
+        height: auto !important;
+        margin: 0 auto;
+        position: relative;
+                  display: none;
+        }
+
+
+     .Episodio1ClasicoPaginas.mostrar {
+           outline: black solid 2px;
+     display: flex;
+        width: 40% !important;
+        height: auto !important;
+        animation: PaginasBiologia 2s both;
+            transform: translateY(25%);
+       display: block;
+
+       }
+
+.Episodio1ClasicoPaginas.esconder {
         width: 0% !important;
         height: auto !important;
         margin: 0 auto;
@@ -705,6 +861,33 @@ box-shadow: 0px 0px 5px;
         }
 
 .Biologia.esconder {
+        width: 0% !important;
+        height: auto !important;
+        margin: 0 auto;
+        position: relative;
+        }
+        
+         .Episodio1ClasicoPaginas {
+        width: 0% !important;
+        height: auto !important;
+        max-height: 0vh;
+        
+
+        }
+        
+        .Episodio1ClasicoPaginas.mostrar {
+        object-fit: contain;
+        margin: 0 auto;
+        display: flex;
+        width: 95% !important;
+        height: auto !important;
+        max-height: 100vh;
+        
+
+               
+        }
+
+.Episodio1ClasicoPaginas.esconder {
         width: 0% !important;
         height: auto !important;
         margin: 0 auto;
