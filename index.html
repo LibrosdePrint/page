@@ -362,6 +362,35 @@ position: absolute;
 </div>
        
 <img id="Episodio3Clasico" onclick="LeerEpisodio3Clasico()" class="EpisodiosClasico"  src="https://github.com/LibrosdePrint/page/blob/main/Episodio3Poster.png?raw=true">
+
+<img class="Episodio3ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/1%20E3.jpg?raw=true">
+<img class="Episodio3ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/2%20E3.jpg?raw=true">
+<img class="Episodio3ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/3%20E3.jpg?raw=true">
+<img class="Episodio3ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/4%20E3.jpg?raw=true">
+<img class="Episodio3ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/5%20E3.jpg?raw=true">
+<img class="Episodio3ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/6%20E3.jpg?raw=true">
+<img class="Episodio3ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/7%20E3.jpg?raw=true">
+<img class="Episodio3ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/8%20E3.jpg?raw=true">
+<img class="Episodio3ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/9%20E3.jpg?raw=true">
+<img class="Episodio3ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/10%20E3.jpg?raw=true">
+<img class="Episodio3ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/11%20E3.jpg?raw=true">
+<img class="Episodio3ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/12%20E3.jpg?raw=true">
+<img class="Episodio3ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/13%20E3.jpg?raw=true">
+<img class="Episodio3ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/14%20E3.jpg?raw=true">
+<img class="Episodio3ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/15%20E3.jpg?raw=true">
+<img class="Episodio3ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/16%20E3.jpg?raw=true">
+<img class="Episodio3ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/17%20E3.jpg?raw=true">
+<img class="Episodio3ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/18%20E3.jpg?raw=true">
+<img class="Episodio3ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/19%20E3.jpg?raw=true">
+<img class="Episodio3ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/20%20E3.jpg?raw=true">
+<img class="Episodio3ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/21%20E3.jpg?raw=true">
+<img class="Episodio3ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/22%20E3.jpg?raw=true">
+<img class="Episodio3ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/23%20E3.jpg?raw=true">
+<img class="Episodio3ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/24%20E3.jpg?raw=true">
+<img class="Episodio3ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/25%20E3.jpg?raw=true">
+<img class="Episodio3ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/26%20E3.jpg?raw=true">
+<img class="Episodio3ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/27%20E3.jpg?raw=true">
+<img class="Episodio3ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/28%20E3.jpg?raw=true">
        
 <div id="EspacioCreditos">
 
@@ -565,8 +594,31 @@ botonEpisodio2Clasico.addEventListener('click', function() {
 
 
 
+       
+
+const botonEpisodio3Clasico = document.querySelector('#Episodio3Clasico');
+const paginasEpisodio3Clasico = document.querySelectorAll('.Episodio3ClasicoPaginas');
+
+
+botonEpisodio3Clasico.addEventListener("click", () => {
+        paginasEpisodio3Clasico.forEach(paginasEpisodio2Clasico => {
+        
+            paginasEpisodio3Clasico.style.border = obtenerAleatorio(borde);
+            paginasEpisodio3Clasico.style.borderRadius = obtenerAleatorio(radiosTrazos);
+        });
+    });
+
+
+botonEpisodio3Clasico.addEventListener('click', function() {
+    paginasEpisodio3Clasico.forEach(p => p.classList.add('mostrar'));
+    paginasEpisodio3Clasico.forEach(p => p.classList.remove('esconder'));
+});
+
+
+
+
 botonCerrar.addEventListener('click', function() {
-    [paginasBiologia, paginasEpisodio1Clasico].forEach(grupo => {
+    [paginasBiologia, paginasEpisodio1Clasico, paginasEpisodio2Clasico, paginasEpisodio3Clasico].forEach(grupo => {
         grupo.forEach(p => {
             p.classList.remove('mostrar');
             p.classList.add('esconder');
@@ -909,6 +961,37 @@ document.getElementById("Cerrar").style.display = "none";
         position: relative;
        display: none;
         }
+
+
+
+
+ .Episodio3ClasicoPaginas {
+        width: 0% !important;
+        height: auto !important;
+        margin: 0 auto;
+        position: relative;
+                  display: none;
+        }
+
+
+     .Episodio3ClasicoPaginas.mostrar {
+           outline: black solid 2px;
+     display: flex;
+        width: 40% !important;
+        height: auto !important;
+        animation: PaginasBiologia 2s both;
+            transform: translateY(25%);
+       display: block;
+
+       }
+
+.Episodio3ClasicoPaginas.esconder {
+        width: 0% !important;
+        height: auto !important;
+        margin: 0 auto;
+        position: relative;
+       display: none;
+        }
        
 
        .Comentario {
@@ -1035,6 +1118,36 @@ box-shadow: 0px 0px 5px;
         }
 
 .Episodio2ClasicoPaginas.esconder {
+        width: 0% !important;
+        height: auto !important;
+        margin: 0 auto;
+        position: relative;
+        }
+
+
+
+
+          .Episodio3ClasicoPaginas {
+        width: 0% !important;
+        height: auto !important;
+        max-height: 0vh;
+        
+
+        }
+        
+        .Episodio3ClasicoPaginas.mostrar {
+        object-fit: contain;
+        margin: 0 auto;
+        display: flex;
+        width: 95% !important;
+        height: auto !important;
+        max-height: 100vh;
+        
+
+               
+        }
+
+.Episodio3ClasicoPaginas.esconder {
         width: 0% !important;
         height: auto !important;
         margin: 0 auto;
