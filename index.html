@@ -26,9 +26,12 @@ display: none;
 }
 
 .EpisodiosClasico {
+position: relative;
+margin: 0 auto;
+top: 120px;
 height: 25%;
 width: 25%;
-margin: 0 auto;
+
 display: none;
 }
 
@@ -309,7 +312,9 @@ position: absolute;
 
 </div>
 
+
 <img id="Episodio1Clasico" onclick="LeerEpisodio1Clasico()" class="EpisodiosClasico"  src="https://github.com/LibrosdePrint/page/blob/main/Episodio1Poster.png?raw=true">
+
 
 <div class="EspacioClasico">
 
@@ -328,9 +333,11 @@ position: absolute;
 
 </div>
 
-<div class="EspacioClasico">
 
 <img id="Episodio2Clasico" onclick="LeerEpisodio2Clasico()" class="EpisodiosClasico"  src="https://github.com/LibrosdePrint/page/blob/main/Episodio2Poster.png?raw=true">
+
+
+<div class="EspacioClasico">
 
 <img class="Episodio2ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/1%20E2.jpg?raw=true">
 <img class="Episodio2ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/2%20E2.jpg?raw=true">
@@ -656,7 +663,37 @@ document.getElementById("reset").style.display = "none";
   }
   
   function LeerEpisodio1Clasico() {
-    document.getElementById("EspacioClasico").style.gap = "20px";
+
+    
+    const extenderEspacio = document.querySelectorAll(".EspacioClasico");
+      for (let i = 0; i < extenderEspacio.length; i++) {
+         extenderEspacio[i].style.gap = "20px";
+         
+}
+    
+    }
+    
+   function LeerEpisodio2Clasico() {
+
+    
+    const extenderEspacio = document.querySelectorAll(".EspacioClasico");
+      for (let i = 0; i < extenderEspacio.length; i++) {
+         extenderEspacio[i].style.gap = "20px";
+         
+}
+    
+    }
+    
+    
+  
+   function LeerEpisodio3Clasico() {
+
+    
+    const extenderEspacio = document.querySelectorAll(".EspacioClasico");
+      for (let i = 0; i < extenderEspacio.length; i++) {
+         extenderEspacio[i].style.gap = "20px";
+         
+}
     
     }
 
