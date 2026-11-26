@@ -28,9 +28,9 @@ display: none;
 .EpisodiosClasico {
 position: relative;
 margin: 0 auto;
-top: 120px;
-height: 25%;
-width: 25%;
+top: 50px;
+height: 120px;
+width: 200px;
 
 display: none;
 }
@@ -151,10 +151,17 @@ display: none;
   gap: 0px;
 }
 
-  .EspacioClasico {
+  #EspacioClasico {
   display: grid;
   gap: 0px;
 }
+
+.EspacioClasico {
+display: grid;
+  gap: 0px;
+}
+
+
 
        #BotonesEspacio {
   display: grid;
@@ -312,6 +319,7 @@ position: absolute;
 
 </div>
 
+<div id="EspacioClasico">
 
 <img id="Episodio1Clasico" onclick="LeerEpisodio1Clasico()" class="EpisodiosClasico"  src="https://github.com/LibrosdePrint/page/blob/main/Episodio1Poster.png?raw=true">
 
@@ -395,6 +403,9 @@ position: absolute;
 <img class="Episodio3ClasicoPaginas" src="https://github.com/LibrosdePrint/page/blob/main/28%20E3.jpg?raw=true">
 
 </div>
+
+</div>
+
        
 <div id="EspacioCreditos">
 
@@ -668,6 +679,9 @@ const abrirEpisodiosClasico = document.querySelectorAll(".EpisodiosClasico");
        abrirEpisodiosClasico[i].style.display = "block";
 
 }
+
+    document.getElementById("EspacioClasico").style.gap = "50px";
+
         
         }
         
